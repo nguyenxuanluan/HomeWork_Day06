@@ -19,24 +19,42 @@ class PlayGameViewController: UIViewController {
     var rightButton:UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    var backImageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    var labelOrigin:CGPoint!
+    var imageView: UIImageView!
     @IBOutlet weak var answerD: UIButton!
     @IBOutlet weak var answerC: UIButton!
     @IBOutlet weak var answerB: UIButton!
     var changeQuesTimer:Timer!
+    var isFirstTime = true
+    var genArr: [Bool] = [Bool]()
     override func viewDidLoad() {
         super.viewDidLoad()
-       timeLabel.text = "\(TIME_PLAY)"
-        //UserDefaults.standard.set(-1, forKey: "highScore")
-        // Do any additional setup after loading the view.
+        boundButton()
+        labelOrigin = myPokemonLabel.frame.origin
+        timeLabel.text = "\(TIME_PLAY)"
         loadData()
-         changeQuesTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
-    
+        
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: self, repeats: true)
         
     }
-
-    override func didReceiveMemoryWarning() {
+   
+    @IBAction func touchAnswerA(_ sender: UIButton) {
+        whenTouchButton(sender: sender,answerButton: answerA)
+    }
+    
+    @IBAction func touchAnswerB(_ sender: UIButton) {
+        whenTouchButton(sender: sender,answerButton: answerB)
+    }
+    @IBAction func touchAnswerC(_ sender: UIButton) {
+        whenTouchButton(sender: sender,answerButton: answerC)
+    }
+    
+    @IBAction func touchAnswerD(_ sender: UIButton) {
+        whenTouchButton(sender: sender,answerButton: answerD)
+    }
+   override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -44,7 +62,6 @@ class PlayGameViewController: UIViewController {
         var time = NumberFormatter().number(from: timeLabel.text!) as! Int
         if time == 0{
             mytimer.invalidate()
-            changeQuesTimer.invalidate()
             alert()
         } else {
         time -= 1
@@ -66,7 +83,8 @@ class PlayGameViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     func loadData() {
-        initButton()
+        
+        
         var answer:[Int] =  []// contains number from 0 to 3 to set right and wrong answer
         myPokemonLabel.isHidden = true
         var temp:Int!
@@ -79,13 +97,22 @@ class PlayGameViewController: UIViewController {
         // set data for stage by below number
         let database = DataBaseManager()
         let rs = database.getPokemonById(id: rand)
-        imageView.image = UIImage(named: rs.img)?.withRenderingMode(.alwaysTemplate)
-        imageView.backgroundColor = UIColor.white
+        setupImage(imageName: rs.img)
         self.view.backgroundColor = UIColor().hexStringToUIColor(hex: rs.color)
+        if !isFirstTime{
         
+        imageView.frame.origin = CGPoint(x: self.view.frame.width, y: 20)
+        UIView.animate(withDuration: 0.5, delay: 0.2, options: .curveLinear, animations: {
+            self.imageView.frame.origin = CGPoint(x: 5, y: 20)
+        }, completion:{
+            (completion) in
+            self.initButton()
+        })
+        } else {
+            isFirstTime = false
+        }
         // set right answer in A or B or C or D
         let right = randExcept(arr: [], limit: 4)
-        print(right)
         setAnswer(rand: right, answer: rs.name)
         rightAnswer = rs.name
         getRightButton(rand: right)
@@ -101,11 +128,82 @@ class PlayGameViewController: UIViewController {
             print("-----------------")
             setAnswer(rand: answer[i+1], answer: DataBaseManager().getPokemonById(id: otherRand).name)
         }
+    }
+    
+    func animation(tag: String,name:String){
+        UIView.transition(from: imageView, to: backImageView, duration: 1, options: .transitionFlipFromRight, completion: {
+            (completion) in
+            self.myPokemonLabel.text = "\(tag)  \(name)"
+            self.myPokemonLabel.isHidden = false
+        })
         
-
+    }
+    
+    func whenTouchButton(sender: UIButton,answerButton: UIButton){
+        print(rightAnswer)
+        
+        if !self.checkAnswer(text: sender.titleLabel!.text!){
+            answerButton.backgroundColor = UIColor.red
+            self.rightButton.backgroundColor = UIColor.green
+            
+            
+        } else {
+            answerButton.backgroundColor = UIColor.green
+            var temp = NumberFormatter().number(from: self.scoreLabel.text!) as! Int
+            temp += 1
+            self.scoreLabel.text = "\(temp)"
+            
+        }
+        
+        
+        let rs = DataBaseManager().getPokemonById(id: rand)
+        imageView.image = UIImage(named: rs.name)
+        
+        self.animation(tag: rs.tag, name: rs.name)
+        
+        UIView.animate(withDuration: 0.1, delay: 0.3, options: .curveLinear, animations: {
+            self.HiddenButton(state: true)
+        }, completion: {
+            (completion) in
+            let oldOrigin = self.backImageView.frame.origin
+            
+            UIView.animate(withDuration: 0.5, delay: 1, options: .curveLinear, animations: {
+                self.myPokemonLabel.frame.origin = CGPoint(x: self.labelOrigin.x-300, y: self.labelOrigin.y)
+                self.backImageView.frame.origin = CGPoint(x: oldOrigin.x-300, y: oldOrigin.y)
+                
+            }, completion: {
+                (completion) in
+                self.loadData()
+            })
+            
+        })
         
         
     }
+    func setupImage(imageName: String) {
+        imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: containerView.frame.width,  height: containerView.frame.height )))
+        imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        imageView.backgroundColor = UIColor.white
+        backImageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: containerView.frame.width , height: containerView.frame.height )))
+        backImageView.image = UIImage(named: imageName)
+        backImageView.backgroundColor = UIColor.white
+        containerView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        containerView.addSubview(imageView)
+    }
+
+    func boundButton(){
+        answerA.layer.cornerRadius = 5
+        answerA.layer.masksToBounds = true
+        answerB.layer.cornerRadius = 5
+        answerB.layer.masksToBounds = true
+        answerC.layer.cornerRadius = 5
+        answerC.layer.masksToBounds = true
+        answerD.layer.cornerRadius = 5
+        answerD.layer.masksToBounds = true
+    }
+
     func randExcept(arr: [Int],limit:Int) -> Int{
         
         var check = true
@@ -166,53 +264,31 @@ class PlayGameViewController: UIViewController {
         default: break;
         }
     }
-    @IBAction func touchAnswerA(_ sender: UIButton) {
-        whenTouchButton(sender: sender,answerButton: answerA)
-    }
-    
-    @IBAction func touchAnswerB(_ sender: UIButton) {
-        whenTouchButton(sender: sender,answerButton: answerB)
-    }
-    @IBAction func touchAnswerC(_ sender: UIButton) {
-        whenTouchButton(sender: sender,answerButton: answerC)
-    }
-    
-    @IBAction func touchAnswerD(_ sender: UIButton) {
-        whenTouchButton(sender: sender,answerButton: answerD)
-    }
+
     func checkAnswer(text:String) -> Bool{
         return text == rightAnswer
     }
-    func whenTouchButton(sender: UIButton,answerButton: UIButton){
-        print(rightAnswer)
-        if !checkAnswer(text: sender.titleLabel!.text!){
-            answerButton.backgroundColor = UIColor.red
-            rightButton.backgroundColor = UIColor.green
+        func HiddenButton(state: Bool){
+        if state==true {
+            answerA.alpha = 0
+            answerB.alpha = 0
             
+            answerC.alpha = 0
             
+            answerD.alpha = 0
         } else {
-            answerButton.backgroundColor = UIColor.green
-            var temp = NumberFormatter().number(from: scoreLabel.text!) as! Int
-            temp += 1
-            scoreLabel.text = "\(temp)"
+            answerA.alpha = 1
+            answerB.alpha = 1
+        
+            answerC.alpha = 1
             
+            answerD.alpha = 1
         }
-        let rs = DataBaseManager().getPokemonById(id: rand)
-        imageView.image = UIImage(named: rs.name)
-        myPokemonLabel.isHidden = false
-        EnableButton(state: false)
-        myPokemonLabel.text = "\(rs.tag)  \(rs.name)"
-    }
-    func EnableButton(state: Bool){
-        answerA.isEnabled = state
-        answerB.isEnabled = state
-
-        answerC.isEnabled = state
-
-        answerD.isEnabled = state
+        
 
     }
     func setDefaultButton(){
+        
         answerA.backgroundColor = UIColor.white
         answerB.backgroundColor = UIColor.white
         answerC.backgroundColor = UIColor.white
@@ -220,23 +296,16 @@ class PlayGameViewController: UIViewController {
         
     }
     func initButton(){
-        EnableButton(state: true)
         setDefaultButton()
+        HiddenButton(state: false)
+        myPokemonLabel.frame.origin = labelOrigin
         
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         let rootView = self.navigationController?.viewControllers[0] as! ViewController
         rootView.delegate = self
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 protocol Share:class {

@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import AVKit
+import AVFoundation
 class ViewController: UIViewController {
     @IBOutlet weak var myScore: UILabel!
     @IBOutlet weak var highScoreTxt: UILabel!
     @IBOutlet weak var highScore: UILabel!
-    @IBOutlet weak var playButton: UIButton!
     weak var delegate:Share?
     var status = true
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +31,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DataBaseManager.copyDatabase()
+        var introMusic : AVAudioPlayer!
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "8-Bit-Mayhem", ofType: "wav")!) 
+        do {
+        introMusic = try AVAudioPlayer(contentsOf: url)
+            print("OK")
+        } catch {
+            print("Can't play")
+        }
+        //introMusic.numberOfLoops = -1
+        print(introMusic.prepareToPlay())
+        introMusic.play()
+        print(introMusic.isPlaying)
+        
         // Do any additional setup after loading the view, typically from a nib.
        
         

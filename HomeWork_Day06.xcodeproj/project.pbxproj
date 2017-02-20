@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F16A2C7D1E5B3058003A49FB /* 8-Bit-Mayhem.wav in Resources */ = {isa = PBXBuildFile; fileRef = F16A2C771E5B3058003A49FB /* 8-Bit-Mayhem.wav */; };
+		F16A2C7E1E5B3058003A49FB /* firered_00A3.wav in Resources */ = {isa = PBXBuildFile; fileRef = F16A2C781E5B3058003A49FB /* firered_00A3.wav */; };
+		F16A2C7F1E5B3058003A49FB /* firered_00FA.wav in Resources */ = {isa = PBXBuildFile; fileRef = F16A2C791E5B3058003A49FB /* firered_00FA.wav */; };
+		F16A2C801E5B3058003A49FB /* Quirky-Puzzle-Game-Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F16A2C7A1E5B3058003A49FB /* Quirky-Puzzle-Game-Menu.mp3 */; };
+		F16A2C811E5B3058003A49FB /* UIClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = F16A2C7B1E5B3058003A49FB /* UIClick.wav */; };
+		F16A2C821E5B3058003A49FB /* UIToggle.wav in Resources */ = {isa = PBXBuildFile; fileRef = F16A2C7C1E5B3058003A49FB /* UIToggle.wav */; };
+		F16EA0AC1E59EDFB00DE6D22 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EA0AB1E59EDFB00DE6D22 /* SettingViewController.swift */; };
+		F16EA0B01E59F1AF00DE6D22 /* PoplarStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = F16EA0AE1E59F1AF00DE6D22 /* PoplarStd.otf */; };
+		F16EA0B11E59F1AF00DE6D22 /* StencilStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = F16EA0AF1E59F1AF00DE6D22 /* StencilStd.otf */; };
 		F1B86F181E2E378E009A4DB8 /* pokemon.db in Resources */ = {isa = PBXBuildFile; fileRef = F1B86F171E2E378E009A4DB8 /* pokemon.db */; };
 		F1B86F1A1E2E3A9E009A4DB8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B86F191E2E3A9E009A4DB8 /* Utils.swift */; };
 		F1DD05571E2D0A7300ED131A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DD05561E2D0A7300ED131A /* AppDelegate.swift */; };
@@ -768,6 +777,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F16A2C771E5B3058003A49FB /* 8-Bit-Mayhem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "8-Bit-Mayhem.wav"; sourceTree = "<group>"; };
+		F16A2C781E5B3058003A49FB /* firered_00A3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = firered_00A3.wav; sourceTree = "<group>"; };
+		F16A2C791E5B3058003A49FB /* firered_00FA.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = firered_00FA.wav; sourceTree = "<group>"; };
+		F16A2C7A1E5B3058003A49FB /* Quirky-Puzzle-Game-Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Quirky-Puzzle-Game-Menu.mp3"; sourceTree = "<group>"; };
+		F16A2C7B1E5B3058003A49FB /* UIClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = UIClick.wav; sourceTree = "<group>"; };
+		F16A2C7C1E5B3058003A49FB /* UIToggle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = UIToggle.wav; sourceTree = "<group>"; };
+		F16EA0AB1E59EDFB00DE6D22 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F16EA0AE1E59F1AF00DE6D22 /* PoplarStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoplarStd.otf; sourceTree = "<group>"; };
+		F16EA0AF1E59F1AF00DE6D22 /* StencilStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = StencilStd.otf; sourceTree = "<group>"; };
 		F1B86F171E2E378E009A4DB8 /* pokemon.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.db; sourceTree = "<group>"; };
 		F1B86F191E2E3A9E009A4DB8 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F1DD05531E2D0A7300ED131A /* HomeWork_Day06.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork_Day06.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1549,6 +1567,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F16A2C761E5B3058003A49FB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F16A2C771E5B3058003A49FB /* 8-Bit-Mayhem.wav */,
+				F16A2C781E5B3058003A49FB /* firered_00A3.wav */,
+				F16A2C791E5B3058003A49FB /* firered_00FA.wav */,
+				F16A2C7A1E5B3058003A49FB /* Quirky-Puzzle-Game-Menu.mp3 */,
+				F16A2C7B1E5B3058003A49FB /* UIClick.wav */,
+				F16A2C7C1E5B3058003A49FB /* UIToggle.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		F16EA0AD1E59F19700DE6D22 /* newFont */ = {
+			isa = PBXGroup;
+			children = (
+				F16EA0AE1E59F1AF00DE6D22 /* PoplarStd.otf */,
+				F16EA0AF1E59F1AF00DE6D22 /* StencilStd.otf */,
+			);
+			name = newFont;
+			sourceTree = "<group>";
+		};
 		F1DD054A1E2D0A7200ED131A = {
 			isa = PBXGroup;
 			children = (
@@ -1569,19 +1609,22 @@
 		F1DD05551E2D0A7300ED131A /* HomeWork_Day06 */ = {
 			isa = PBXGroup;
 			children = (
+				F1DD056F1E2D148F00ED131A /* Main.storyboard */,
+				F1DD05581E2D0A7300ED131A /* ViewController.swift */,
+				F1DD056D1E2D141100ED131A /* PlayGameViewController.swift */,
+				F16EA0AB1E59EDFB00DE6D22 /* SettingViewController.swift */,
 				F1DD0B401E2D20C500ED131A /* DataBaseManager.swift */,
 				F1DD05561E2D0A7300ED131A /* AppDelegate.swift */,
-				F1DD05581E2D0A7300ED131A /* ViewController.swift */,
-				F1DD056F1E2D148F00ED131A /* Main.storyboard */,
+				F1B86F191E2E3A9E009A4DB8 /* Utils.swift */,
 				F1DD05601E2D0A7300ED131A /* Assets.xcassets */,
 				F1DD05621E2D0A7300ED131A /* LaunchScreen.storyboard */,
-				F1B86F171E2E378E009A4DB8 /* pokemon.db */,
-				F1DD05731E2D203F00ED131A /* images */,
 				F1DD05651E2D0A7300ED131A /* Info.plist */,
-				F1DD056D1E2D141100ED131A /* PlayGameViewController.swift */,
 				F1DD0B5D1E2D2E2800ED131A /* HomeWork_Day06-Bridging-Header.h */,
+				F1B86F171E2E378E009A4DB8 /* pokemon.db */,
+				F16A2C761E5B3058003A49FB /* Sounds */,
+				F1DD05731E2D203F00ED131A /* images */,
 				F1DD0B601E2D2E6E00ED131A /* fmdb */,
-				F1B86F191E2E3A9E009A4DB8 /* Utils.swift */,
+				F16EA0AD1E59F19700DE6D22 /* newFont */,
 			);
 			path = HomeWork_Day06;
 			sourceTree = "<group>";
@@ -2521,6 +2564,7 @@
 				F1DD0AD81E2D204400ED131A /* Talonflame.png in Resources */,
 				F1DD0A281E2D204400ED131A /* Pawniard.png in Resources */,
 				F1DD0A0C1E2D204400ED131A /* Nidorina.png in Resources */,
+				F16A2C7F1E5B3058003A49FB /* firered_00FA.wav in Resources */,
 				F1DD09D11E2D204400ED131A /* Magmar.png in Resources */,
 				F1DD0A201E2D204400ED131A /* Pancham.png in Resources */,
 				F1DD09B21E2D204400ED131A /* Ledyba.png in Resources */,
@@ -2593,6 +2637,7 @@
 				F1DD0B1C1E2D204400ED131A /* Walrein.png in Resources */,
 				F1DD0AC01E2D204400ED131A /* Staravia.png in Resources */,
 				F1DD0A681E2D204400ED131A /* Roggenrola.png in Resources */,
+				F16A2C801E5B3058003A49FB /* Quirky-Puzzle-Game-Menu.mp3 in Resources */,
 				F1DD091E1E2D204400ED131A /* Fennekin.png in Resources */,
 				F1DD08BB1E2D204300ED131A /* Chimecho.png in Resources */,
 				F1DD0A1B1E2D204400ED131A /* Onix.png in Resources */,
@@ -2787,6 +2832,7 @@
 				F1DD085E1E2D204300ED131A /* Aegislash.png in Resources */,
 				F1DD0B0B1E2D204400ED131A /* Vespiquen.png in Resources */,
 				F1DD0B3D1E2D204400ED131A /* Zubat.png in Resources */,
+				F16EA0B01E59F1AF00DE6D22 /* PoplarStd.otf in Resources */,
 				F1DD09521E2D204400ED131A /* Goomy.png in Resources */,
 				F1DD0A141E2D204400ED131A /* Nosepass.png in Resources */,
 				F1DD08D91E2D204400ED131A /* Cubone.png in Resources */,
@@ -2958,6 +3004,7 @@
 				F1DD0A481E2D204400ED131A /* Probopass.png in Resources */,
 				F1DD0AB91E2D204400ED131A /* Spinda.png in Resources */,
 				F1DD09481E2D204400ED131A /* Gliscor.png in Resources */,
+				F16A2C811E5B3058003A49FB /* UIClick.wav in Resources */,
 				F1DD08F31E2D204400ED131A /* Dragonite.png in Resources */,
 				F1DD0A421E2D204400ED131A /* Popplio.png in Resources */,
 				F1DD089C1E2D204300ED131A /* Budew.png in Resources */,
@@ -2965,6 +3012,7 @@
 				F1DD08FE1E2D204400ED131A /* Dunsparce.png in Resources */,
 				F1DD09BC1E2D204400ED131A /* Litwick.png in Resources */,
 				F1DD08681E2D204300ED131A /* Ampharos.png in Resources */,
+				F16A2C7E1E5B3058003A49FB /* firered_00A3.wav in Resources */,
 				F1DD08B71E2D204300ED131A /* Chesnaught.png in Resources */,
 				F1DD0B221E2D204400ED131A /* Weezing.png in Resources */,
 				F1DD0B211E2D204400ED131A /* Weepinbell.png in Resources */,
@@ -3077,6 +3125,7 @@
 				F1DD09CB1E2D204400ED131A /* Machoke.png in Resources */,
 				F1DD08FD1E2D204400ED131A /* Dugtrio.png in Resources */,
 				F1DD09621E2D204400ED131A /* Gulpin.png in Resources */,
+				F16A2C7D1E5B3058003A49FB /* 8-Bit-Mayhem.wav in Resources */,
 				F1DD0A071E2D204400ED131A /* Natu.png in Resources */,
 				F1DD090C1E2D204400ED131A /* Electrike.png in Resources */,
 				F1DD099B1E2D204400ED131A /* Klink.png in Resources */,
@@ -3087,6 +3136,7 @@
 				F1DD0A2A1E2D204400ED131A /* Persian.png in Resources */,
 				F1DD0A861E2D204400ED131A /* Servine.png in Resources */,
 				F1DD09EC1E2D204400ED131A /* Mesprit.png in Resources */,
+				F16A2C821E5B3058003A49FB /* UIToggle.wav in Resources */,
 				F1DD09C31E2D204400ED131A /* Lugia.png in Resources */,
 				F1DD09491E2D204400ED131A /* Gloom.png in Resources */,
 				F1DD08901E2D204300ED131A /* Blaziken.png in Resources */,
@@ -3134,6 +3184,7 @@
 				F1DD0AE61E2D204400ED131A /* Togedemaru.png in Resources */,
 				F1DD08A91E2D204300ED131A /* Carvanha.png in Resources */,
 				F1DD08EB1E2D204400ED131A /* Diglett.png in Resources */,
+				F16EA0B11E59F1AF00DE6D22 /* StencilStd.otf in Resources */,
 				F1DD09EB1E2D204400ED131A /* Meowth.png in Resources */,
 				F1DD08F01E2D204400ED131A /* Doublade.png in Resources */,
 				F1DD088D1E2D204300ED131A /* Binacle.png in Resources */,
@@ -3180,6 +3231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DD0B411E2D20C500ED131A /* DataBaseManager.swift in Sources */,
+				F16EA0AC1E59EDFB00DE6D22 /* SettingViewController.swift in Sources */,
 				F1DD0B701E2D2E6E00ED131A /* FMDatabaseQueue.m in Sources */,
 				F1DD05591E2D0A7300ED131A /* ViewController.swift in Sources */,
 				F1DD05571E2D0A7300ED131A /* AppDelegate.swift in Sources */,
@@ -3229,6 +3281,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3279,6 +3333,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
